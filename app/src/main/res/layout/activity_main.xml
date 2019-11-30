@@ -73,11 +73,24 @@
 
     <TextView
         android:id="@+id/tv_hasil"
-        android:layout_weight="1"
-        android:textSize="40sp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text=""/>
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="40sp" />
+    <Button
+        android:id="@+id/btn_bandingkan_bilangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BANDINGKAN BILANGAN"/>
+
+    <Button
+        android:id="@+id/btn_hitung_rumus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HITUNG RUMUS"/>
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="match_parent"
