@@ -80,17 +80,54 @@
         android:text=""
         android:textAlignment="center"
         android:textSize="40sp" />
-    <Button
-        android:id="@+id/btn_bandingkan_bilangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BANDINGKAN BILANGAN"/>
 
-    <Button
-        android:id="@+id/btn_hitung_rumus"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="HITUNG RUMUS"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_looping_for"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="FOR"/>
+
+        <Button
+            android:id="@+id/btn_looping_while"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="WHILE"/>
+
+        <Button
+            android:id="@+id/btn_looping_do_while"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="DO WHILE"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_bandingkan_bilangan"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="PERBANDINGAN"/>
+
+        <Button
+            android:id="@+id/btn_hitung_rumus"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="RUMUS SEGITIGA"/>
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="match_parent"

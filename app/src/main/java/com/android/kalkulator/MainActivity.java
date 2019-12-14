@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -16,7 +17,8 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     TextView tv_hasil;
-    Button btn_reset, btn_hitung_rumus, btn_bandingkan_bilangan;
+    Button btn_reset, btn_hitung_rumus, btn_bandingkan_bilangan, btn_looping_for,
+            btn_looping_while, btn_looping_do_while;
     EditText edt_bil1, edt_bil2;
     String operasi = "";
 
@@ -29,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         btn_reset = findViewById(R.id.btn_reset);
         btn_hitung_rumus = findViewById(R.id.btn_hitung_rumus);
         btn_bandingkan_bilangan = findViewById(R.id.btn_bandingkan_bilangan);
+        btn_looping_for = findViewById(R.id.btn_looping_for);
+        btn_looping_while = findViewById(R.id.btn_looping_while);
+        btn_looping_do_while = findViewById(R.id.btn_looping_do_while);
+
         edt_bil1 = findViewById(R.id.edt_bil1);
         edt_bil2 = findViewById(R.id.edt_bil2);
 
@@ -87,6 +93,113 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btn_looping_for.setOnClickListener(new View.OnClickListener(){
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view){
+
+                if (TextUtils.isEmpty(edt_bil1.getText())) {
+                    edt_bil1.setError("Bilangan 1 Diperlukan");
+
+                }else if (TextUtils.isEmpty(edt_bil2.getText())) {
+                    edt_bil2.setError("Bilangan 2 Diperlukan");
+
+                }else {
+
+                    Double bil1Value = Double.valueOf(edt_bil1.getText().toString());
+                    Double bil2Value = Double.valueOf(edt_bil2.getText().toString());
+
+                    if (bil1Value > bil2Value) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 1 harus lebih kecil dari bilangan 2", Toast.LENGTH_LONG).show();
+                    } else if (bil2Value > 10) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 2 melebihi batas maksimum looping", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        tv_hasil.setText("");
+                        for (int i = bil1Value.intValue(); i <= bil2Value.intValue(); i++) {
+                            System.out.println(i+", ");
+                            tv_hasil.append(i+", ");
+                        }
+
+                    }
+                }
+            }
+        });
+
+        btn_looping_while.setOnClickListener(new View.OnClickListener(){
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view){
+
+                if (TextUtils.isEmpty(edt_bil1.getText())) {
+                    edt_bil1.setError("Bilangan 1 Diperlukan");
+
+                }else if (TextUtils.isEmpty(edt_bil2.getText())) {
+                    edt_bil2.setError("Bilangan 2 Diperlukan");
+
+                }else {
+
+                    Double bil1Value = Double.valueOf(edt_bil1.getText().toString());
+                    Double bil2Value = Double.valueOf(edt_bil2.getText().toString());
+
+                    if (bil1Value > bil2Value) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 1 harus lebih kecil dari bilangan 2", Toast.LENGTH_LONG).show();
+                    } else if (bil2Value > 10) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 2 melebihi batas maksimum looping", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        tv_hasil.setText("");
+                        int i = bil1Value.intValue();
+                        int x = bil2Value.intValue();
+                        while (i <= x) {
+                            System.out.print(i+", ");
+                            tv_hasil.append(i+", ");
+                            i++;
+                        }
+
+                    }
+                }
+            }
+        });
+
+        btn_looping_do_while.setOnClickListener(new View.OnClickListener(){
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view){
+
+                if (TextUtils.isEmpty(edt_bil1.getText())) {
+                    edt_bil1.setError("Bilangan 1 Diperlukan");
+
+                }else if (TextUtils.isEmpty(edt_bil2.getText())) {
+                    edt_bil2.setError("Bilangan 2 Diperlukan");
+
+                }else {
+
+                    Double bil1Value = Double.valueOf(edt_bil1.getText().toString());
+                    Double bil2Value = Double.valueOf(edt_bil2.getText().toString());
+
+                    if (bil1Value > bil2Value) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 1 harus lebih kecil dari bilangan 2", Toast.LENGTH_LONG).show();
+                    } else if (bil2Value > 10) {
+                        Toast.makeText(MainActivity.this, "Invalid Bilangan 2 melebihi batas maksimum looping", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        tv_hasil.setText("");
+                        int i = bil1Value.intValue();
+                        int x = bil2Value.intValue();
+                        do {
+                            System.out.print(i+", ");
+                            tv_hasil.append(i+", ");
+                            i++;
+                        }while (i<=x);
+
+                    }
+                }
+            }
+        });
+
+
     }
 
     private Double kalkulasi(Double bil1, Double bil2, String operasi) {
